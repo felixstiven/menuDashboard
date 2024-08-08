@@ -1,0 +1,105 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main{
+    display: grid;
+    padding: 30px 20px;
+}
+
+/* FORMULARIO */
+
+#sectionForm{
+    padding: 20px;
+}
+
+#sectionForm > form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#sectionForm > h1{
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 3rem;
+}
+
+#sectionForm > form > input{
+    padding: 10px 8px;
+    border-radius: 8px;
+    border: 1px solid gray;
+}
+#sectionForm > form > button{
+    padding: 10px 8px;
+    border-radius: 100px;
+    border: 1px solid gray;
+    background-color: chartreuse;
+    color: #fff;
+}
+
+
+#sectionForm > form > button:hover{
+    transform: scale(0.95);
+    cursor: pointer;
+}
+
+#sectionForm > form > input:hover{  
+    border: 3px solid rgb(233, 247, 40);
+}
+
+/* TABLA */
+
+#sectionTable >  table{
+    width: 100%;
+} 
+
+#sectionTable > table, tr, td, th{
+    border:  1px solid black;
+    border-collapse: collapse;
+}
+
+
+#sectionTable > table > thead > tr > th{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+#sectionTable > table > tbody > tr > td{
+    text-align: center;
+    padding: 5px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    main{
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    main{
+        grid-template-columns: 1fr 1.5fr;
+    }
+}
+

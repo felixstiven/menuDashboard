@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/0d4d77fc48.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <section id="sectionForm">
+            <h1>productos</h1>
+            <form action="">
+                <input id="inProduct" type="text" placeholder="productos">
+                <input id="inStock" type="number" placeholder="existentes">
+                <input id="inPrice" type="number" placeholder="precio">
+                <input id="inStatus" type="number" placeholder="status">
+                <button id="btnAddUpdate">AGREGAR</button>
+            </form>
+        </section>
+        <section id="sectionTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>producto</th>
+                        <th>existentes</th>
+                        <th>precio</th>
+                        <th>status</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyProducts">
+                    <!-- codigo de prueba estructura -->
+                    <!-- <tr>
+                        <td><i class="fa-solid fa-trash"></i></td>
+                        <td><i class="fa-solid fa-pen"></i></td>
+                        <td>Lapiz</td>
+                        <td>20</td>
+                        <td>5</td>
+                        <td>1</td>
+                    </tr> -->
+                </tbody>              
+            </table>
+        </section>
+    </main>    
+
+    <script src="js/index.js"></script>
+    <script src="/Dashboard-ejercio/js/models/Product.js"></script>
+    <script src="/Dashboard-ejercio/js/controllers/products.js"></script>
+</body>
+</html>
