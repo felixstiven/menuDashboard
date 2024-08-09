@@ -11,10 +11,20 @@ function getproducts(){
     return products
 }
 
-
+// funccion de agregar
 function addProduct (name, stock, price, status) {
     const newProduct = new Product(name, stock, price, status)
     products.push(newProduct)
     return newProduct
+
+}
+
+// funcion de actualizar 
+
+function updateProduct (i, newName, newStock, newPrice, newStatus){
+    products[i].name = newName;
+    products[i].stock = newStock;
+    products[i].price = newPrice;
+    products[i].status = newStatus;
 
 }
