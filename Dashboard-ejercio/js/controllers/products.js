@@ -7,9 +7,10 @@ const products = [
     new Product("Bloc", 60, 40, 1),
 ]
 
-function getproducts(){
+function getProducts(){
     return products
 }
+
 
 // funccion de agregar
 function addProduct (name, stock, price, status) {
@@ -26,5 +27,13 @@ function updateProduct (i, newName, newStock, newPrice, newStatus){
     products[i].stock = newStock;
     products[i].price = newPrice;
     products[i].status = newStatus;
+
+}
+
+// funcion de eliminar 
+
+function deleteProduct (i){
+
+    products.splice(i,1)
 
 }

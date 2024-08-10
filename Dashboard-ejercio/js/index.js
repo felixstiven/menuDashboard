@@ -10,12 +10,12 @@ const inStatus = document.querySelector("#inStatus")
 
 body.onload = () => {
 
-    const products = getproducts();
+    const products = getProducts();
     fillTable(products);
 }
 
 function fillTable (products){
-    let trs = [];
+    let trs = []
 
     products.forEach((p, i) => {
         const tr = createRow(p, i)
@@ -27,23 +27,37 @@ function fillTable (products){
         tbodyProducts.append(...trs)  // ...operador para salir del arreglo
 }
 
+function clearTable(){
+    tbodyProducts.innerHTML = ""
+}
+
 function createRow(p, i){
       // icon of delete
     const iDelete = document.createElement("i");
     iDelete.className = "fa-solid fa-trash";
     const tdDelete = document.createElement("td");
     tdDelete.appendChild(iDelete);
+    iDelete.addEventListener("click", () =>{
+        const isConfirm = confirm("seguro quieres eliminar el producto..?")
+        if(isConfirm){
+            // yes delete
+            deleteProduct(i)
+            clearTable()
+            fillTable(getProducts())
+        }
+
+    })
     // icon of Update
     const iUpdate = document.createElement("i");
     iUpdate.className = "fa-solid fa-pen";
     iUpdate.addEventListener("click",() =>{
-        inProduct.value = p.name;
-        inStock.value = p.stock;
-        inPrice.value = p.price;
-        inStatus.value = p.status;
-        btnAddUpdate.textContent = "ACTUALIZAR";
+        inProduct.value = p.name
+        inStock.value = p.stock
+        inPrice.value = p.price
+        inStatus.value = p.status
+        btnAddUpdate.textContent = "ACTUALIZAR"
         // btnAddUpdate.removeEventListener("click",handerAddClick);
-        btnAddUpdate.onclick = (e) => handerUpdateClick(e, i);
+        btnAddUpdate.onclick = (e) => handerUpdateClick(e, i)
 
         
     })
@@ -85,7 +99,7 @@ function handerAddClick(e){
     const valueInStock = parseInt(inStock.value)
     const valueInPrice = parseFloat(inPrice.value)
     const valueInStatus = parseInt(inStatus.value)
-    const i = getproducts().length
+    const i = getProducts().length
     // Nota: estas lineas son de prueba se puede realizar en una sola linea 
     // const valueInProduct = inProduct.value
     // const valueInStock = parseInt(inStock.value) // convertir de string a numero entero
@@ -99,7 +113,7 @@ function handerAddClick(e){
     e.preventDefault()
 }
 
-function handerUpdateClick (e, i){
+function handerUpdateClick(e, i){
     const valueInProduct = inProduct.value
     const valueInStock = parseInt(inStock.value)
     const valueInPrice = parseFloat(inPrice.value)
@@ -107,8 +121,13 @@ function handerUpdateClick (e, i){
 
     updateProduct(i, valueInProduct,  valueInStock, valueInPrice, valueInStatus)
     clearTable()
-    const products = getproducts()
-    fillTable( products)
-
+    const products = getProducts()
+    fillTable(products)
+    inProduct.value =""
+    inStock.value =""
+    inPrice.value =""
+    inStatus.value =""
+    btnAddUpdate.textContent = "AGREGAR"
+    alert("PRODUCTO ACTUALIZADO")
     e.preventDefault()
 }
